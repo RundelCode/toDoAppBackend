@@ -1,6 +1,6 @@
 import express from 'express';
-import userRoutes from './Routes/users.js';
-import taskRoutes from './Routes/tasks.js';
+import userRoutes from './src/Routes/users.js';
+import taskRoutes from './src/Routes/tasks.js';
 import bodyParser from 'body-parser';
 import cors from "cors";
 
