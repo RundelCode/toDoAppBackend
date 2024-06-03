@@ -9,6 +9,7 @@ export const getAllUsers = (req, res) => {
     }
     else {
       res.send(results);
+      return(results)
     }
   })
 };
@@ -22,6 +23,22 @@ export const getUserById = (req, res) => {
     }
     else {
       res.send(results);
+      return(results)
+    }
+  });
+};
+
+export const login = (req, res) => {
+  const {email, password} = req.body;
+  const query = `SELECT * FROM Users WHERE email = ? AND password = ?`;
+  connection.query(query,[email, password], (err, results) => {
+    if (err) {
+      console.error(`Usuario no encontrado ${err}`)
+    }
+    else {
+      console.log(results)
+      res.send(results);
+      return(results)
     }
   });
 };
@@ -37,6 +54,7 @@ export const createUser = (req, res) => {
     } else {
       console.log("Usuario agregado exitosamente.");
       res.send(results);
+      return(results)
     }
   });
 };
@@ -51,6 +69,7 @@ export const deleteUser = (req, res) => {
     } else {
       console.log("Usuario eliminado exitosamente.");
       res.send(results);
+      return(results)
     }
   });
 };

@@ -1,11 +1,12 @@
 import express from "express";
 import { Router } from "express";
 import cors from "cors";
-import {getAllUsers, getUserById, createUser, deleteUser} from "../Controllers/userController.js"
+import {getAllUsers, getUserById, createUser,login, deleteUser} from "../Controllers/userController.js"
 
 const router = Router()
 
 router.get("/getUsers", getAllUsers);
+router.post("/login", login);
 router.get("/getUser/:id", getUserById);
 router.post("/newUser", createUser);
 router.delete("/deleteUser/:id", deleteUser);
