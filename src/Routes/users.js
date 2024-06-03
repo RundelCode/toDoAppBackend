@@ -1,6 +1,4 @@
-import express from "express";
 import { Router } from "express";
-import cors from "cors";
 import {getAllUsers, getUserById, createUser,login, deleteUser} from "../Controllers/userController.js"
 
 const router = Router()

@@ -1,6 +1,4 @@
-import express from "express";
 import { Router } from "express";
-import cors from "cors";
 import {getAllTasks, getTaskById, createTask, deleteTask} from "../Controllers/taskController.js"
 
 const router = Router()

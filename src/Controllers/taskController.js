@@ -7,6 +7,7 @@ export const getAllTasks = (req, res) => {
       console.error(`Error al obtener los usuarios... ${err}`)
     }
     else {
+      res.send(results)
       return(results);
     }
   })
@@ -20,6 +21,7 @@ export const getTaskById = (req, res) => {
       console.error(`Error al obtener las tareas... ${err}`)
     }
     else {
+      res.send(results)
       return(results);
     }
   });
@@ -35,6 +37,7 @@ export const createTask = (req, res) => {
       res.status(500).send("Error interno del servidor al crear la tarea");
     } else {
       console.log("Tarea agregada exitosamente.");
+      res.send(results)
       return(results);
     }
   });
@@ -49,6 +52,7 @@ export const deleteTask = (req, res) => {
       console.error(`Error al eliminar la tarea.,,: ${err}`);
     } else {
       console.log("Tarea eliminada exitosamente.");
+      res.send(results)
       return(results);
     }
   });

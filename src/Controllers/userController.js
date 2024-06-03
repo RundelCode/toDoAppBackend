@@ -1,4 +1,3 @@
-import { query } from "express";
 import connection from "../DB/connection.js";
 
 export const getAllUsers = (req, res) => {
@@ -8,6 +7,7 @@ export const getAllUsers = (req, res) => {
       console.error(`Error al obtener los usuarios... ${err}`)
     }
     else {
+      res.send(results)
       return(results)
     }
   })
@@ -21,6 +21,7 @@ export const getUserById = (req, res) => {
       console.error(`Error al obtener los usuarios... ${err}`)
     }
     else {
+      res.send(results)
       return(results)
     }
   });
@@ -34,6 +35,7 @@ export const login = (req, res) => {
       console.error(`Usuario no encontrado ${err}`)
     }
     else {
+      res.send(results)
       return(results)
     }
   });
@@ -49,6 +51,7 @@ export const createUser = (req, res) => {
       res.status(500).send("Error interno del servidor al crear el usuario");
     } else {
       console.log("Usuario agregado exitosamente.");
+      res.send(results)
       return(results)
     }
   });
@@ -63,6 +66,7 @@ export const deleteUser = (req, res) => {
       console.error(`Error al eliminar el usuario: ${err}`);
     } else {
       console.log("Usuario eliminado exitosamente.");
+      res.send(results)
       return(results)
     }
   });
