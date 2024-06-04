@@ -14,7 +14,7 @@ app.use(cors())
 app.use('/users', userRoutes);
 app.use('/tasks', taskRoutes);
 
-const allowedOrigins = ['http://localhost:3200'];
+const allowedOrigins = ['http://localhost:3200', 'https://to-do-pi-three.vercel.app'];
 
 const corsOptions = (origin, callback)=>{
   if(allowedOrigins.indexOf(origin) !== -1 || !origin){
