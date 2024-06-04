@@ -15,7 +15,7 @@ export const getAllTasks = (req, res) => {
 
 export const getTaskById = (req, res) => {
   const userId = req.params.id;
-  const query = `SELECT * FROM Tasks WHERE id = ?`;
+  const query = `SELECT * FROM Tasks WHERE UserId = ? ORDER BY dueDate ASC;`;
   connection.query(query,[userId], (err, results) => {
     if (err) {
       console.error(`Error al obtener las tareas... ${err}`)

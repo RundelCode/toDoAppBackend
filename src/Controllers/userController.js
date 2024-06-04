@@ -41,8 +41,19 @@ export const login = (req, res) => {
   });
 };
 
+
+function generateSecureRandomId(length = 7) {
+  const id = [];
+  for (let i = 0; i < length; i++) {
+    id.push(Math.floor(Math.random() * 9) + 1);
+  }
+  return Number(id.join(''));
+}
+
+
 export const createUser = (req, res) => {
-  const { id, username, email, password, phone } = req.body;
+  const {username, email, password, phone } = req.body;
+  const id = generateSecureRandomId();
   const query = "INSERT INTO `Users`(`id`, `username`, `email`, `password`, `phone`) VALUES (?,?,?,?,?);";
 
   connection.query(query, [id, username, email, password, phone], (err, results) => {
